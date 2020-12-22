@@ -82,6 +82,7 @@ public struct CodeScannerView: UIViewControllerRepresentable {
 
     #if targetEnvironment(simulator)
     public class ScannerViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+        public func zoom(level: CGFloat){}
         var delegate: ScannerCoordinator?
         override public func loadView() {
             view = UIView()
@@ -299,7 +300,7 @@ public struct CodeScannerView: UIViewControllerRepresentable {
     public let scanInterval: Double
     private var _zoomLevel: Double?
 
-    private let viewController = ScannerViewController()
+    private let viewController: ScannerViewController = ScannerViewController()
 
     public var zoomLevel: Double?{
         get{

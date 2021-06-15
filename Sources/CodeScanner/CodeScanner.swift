@@ -23,9 +23,9 @@ public struct CodeScannerView: UIViewControllerRepresentable {
     }
 
     public struct ScanResult{
-        var rawBarcode: String?
-        var error: ScanError?
-        var type: AVMetadataObject.ObjectType?
+        public var rawBarcode: String?
+        public var error: ScanError?
+        public var type: AVMetadataObject.ObjectType?
     }
 
     public class ScannerCoordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
@@ -330,6 +330,7 @@ struct CodeScannerView_Previews: PreviewProvider {
     static var previews: some View {
         CodeScannerView(codeTypes: [.qr]) { result in
             // do nothing
+            print(result.rawBarcode ?? "")
         }
     }
 }
